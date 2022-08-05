@@ -1,11 +1,11 @@
 
+
+
+
 from dataclasses import field
-from email.mime import image
-from math import fabs
 from tkinter import *
-from tkinter import messagebox
-from time import *
-from turtle import color
+
+
 
 
 from class_compra import *
@@ -14,8 +14,7 @@ from db_estoque import *
 from class_fabric import *
 from class_venda import *
 
-from setuptools import Command
-from img import *
+
 import posiciona
 
 
@@ -260,12 +259,16 @@ backg2 = PhotoImage(file="img/lmenu.png")
 back2 = Label(f2,image=backg2)
 back2.pack()
 
-cadProd = PhotoImage(file='img/prodbt1.png')
+cadProd = PhotoImage(file='img/botao_produto.png')
 
 prodbt = Button(f2,image=cadProd,bd=0,command=cadWindow)
-prodbt.place(width=420, height=124, x=155, y=344)
+prodbt.place(width=422, height=122, x=153, y=344)
 
 
+botao_voltar = PhotoImage(file='img/voltar.png')
+
+voltar = Button(f2, image=botao_voltar, bd=0, command=lambda: [f1.pack(), f2.pack_forget()])
+voltar.place(width=62, height=89, x=53, y=23)
 
 fabt = PhotoImage(file="img/fabricbt1.png")
 
@@ -275,7 +278,7 @@ fabrbt.place(width=420, height=124,x=706, y=343)
 schbt = PhotoImage(file='img/searchbt1.png')
 
 searchbt = Button(f2,image=schbt,bd=0,command=searchw)
-searchbt.place(width=420, height=124, x=1294, y=343)
+searchbt.place(width=422, height=124, x=1274, y=344)
 
 
 altrbt = PhotoImage(file="img/alterprodbt1.png")
@@ -297,14 +300,28 @@ delbt.place(width=420, height=124, x=1021, y=592)
 f3 = Frame(app)
 
 backg3 = PhotoImage(file="img/cadProdt.png")
-
+cadastrar = PhotoImage(file='img/cadastrar.png')
 
 back3 = Label(f3,image=backg3)
 back3.pack() 
 
+voltar = Button(f3, image=botao_voltar, bd=0, command=lambda: [f2.pack(), f3.pack_forget()])
+voltar.place(width=62, height=89, x=53, y=23)
 
+botao_cadastrar = Button(f3, image=cadastrar, bd=0)
+botao_cadastrar.place(width=327, height=70, x=733, y=843)
 
+desc = Entry(f3, bd=0)
+desc.config(font='Arieal 20')
+desc.place(width=742, height=45, x=578, y=376)
 
+cod = Entry(f3, bd=0)
+cod.config(font='Arieal 20')
+cod.place(width=742, height=45, x=578, y=500)
+
+quant = Entry(f3, bd=0)
+quant.config(font='Arieal 20')
+quant.place(width=742, height=45, x=578, y=626)
 
 #========= = = ============================= = =======[]
 #========= =      =FRAME 4                        = =======[]
@@ -315,12 +332,18 @@ f4 = Frame(app)
 
 backg4 = PhotoImage(file='img/cadFabr.png')
 
-
 back4 = Label(f4,image=backg4)
 back4.pack()
 
+voltar = Button(f4, image=botao_voltar, bd=0, command=lambda: [f2.pack(), f4.pack_forget()])
+voltar.place(width=62, height=89, x=53, y=23)
 
+botao_cadastrar = Button(f4, image=cadastrar, bd=0)
+botao_cadastrar.place(width=335, height=77, x=738, y=842)
 
+fabr = Entry(f4, bd=0)
+fabr.config(font='Arieal 20')
+fabr.place(width=742, height=45, x=654, y=505)
 
 
 #========= = = ============================= = =======[]
@@ -337,6 +360,21 @@ back5 = Label(f5,image=backg5)
 back5.pack()
 
 
+imgsearch = PhotoImage(file='img/codigo_produtobt.png')
+
+
+voltar = Button(f5, image=botao_voltar, bd=0, command=lambda: [f2.pack(), f5.pack_forget()])
+voltar.place(width=62, height=89, x=53, y=23)
+
+
+
+
+procbt = Button(f5,image=imgsearch,bd=0)
+procbt.place(width=380, height=75, x=226, y=335)
+
+proc = Entry(f5, bd=0)
+proc.config(font='Arieal 20')
+proc.place(width=742, height=45, x=679, y=356)
 
 
 #========= = = ============================= = =======[]
@@ -348,23 +386,46 @@ f6 = Frame(app)
 
 backg6 = PhotoImage(file='img/alter.png')
 
+alterar = PhotoImage(file='img/alterar.png')
+
 
 back6 = Label(f6,image=backg6)
 back6.pack()
 
+voltar = Button(f6, image=botao_voltar, bd=0, command=lambda: [f2.pack(), f6.pack_forget()])
+voltar.place(width=62, height=89, x=53, y=23)
+
+botao_alterar = Button(f6, image=alterar, bd=0)
+botao_alterar.place(width=313, height=74, x=747, y=841)
+
+codp = Entry(f6, bd=0)
+codp.config(font='Arieal 20')
+codp.place(width=742, height=45, x=649, y=461)
+
+descp = Entry(f6, bd=0)
+descp.config(font='Arieal 20')
+descp.place(width=742, height=45, x=649, y=590)
 
 #========= = = ============================= = =======[]
 #========= =      =FRAME 7                         = =======[]
 #========= = = ============================= = =======[]
 f7 = Frame(app)
 
+backg7 = PhotoImage(file='img/excluir.png')
 
-backg7 = PhotoImage(file='img/delprod.png')
+excluirimg = PhotoImage(file='img/excluirBt.png')
 
-
-back7 = Label(f7,image=backg7)
+back7 = Label(f7, image=backg7)
 back7.pack()
 
+voltar = Button(f7, image=botao_voltar, bd=0, command=lambda: [f2.pack(), f7.pack_forget()])
+voltar.place(width=62, height=89, x=53, y=23)
 
+botao_excluir = Button(f7, image=excluirimg, bd=0)
+botao_excluir.place(width=315, height=77, x=746, y=838)
+
+excluir = Entry(f7, bd=0)
+excluir.config(font='Arieal 20')
+excluir.place(width=742, height=45, x=648, y=460)
 
 app.mainloop()
